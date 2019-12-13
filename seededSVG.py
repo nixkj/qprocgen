@@ -28,12 +28,21 @@ svgClose = '</svg>'
 
 
 def svgPath(pathCoords, r=10, g=150, b=44):
+    """
+    Function to generate an svg path element
+    """
     pathDef = ''.join(pathCoords)
     pathString = '<path d="'+pathDef+'" fill="rgb('+str(r)+', '+str(b)+', '+str(b)+')"  /> '
     return pathString
 
 
 def get_variation(pos, seed=8):
+    """
+    When passed a path coordinate will apply arbitrary rotation on the qubits to produce a new path coordinate
+    :param pos: The x, y coordinate
+    :param seed: A random value to influence the rotations
+    :return: Four values from the 2 bit quantum circuit
+    """
     (x, y) = pos
 
     # initialize a circuit
@@ -94,9 +103,12 @@ for idx in range(len(seed)):
         pathDefArray.append(str(100*y))
         pathDefArray.append(' ')
 
-        # qColourArray.append(newCoord[1])
-
 def generateQSeededPath(seededPathArr):
+    """
+    When provided seed of path will pass each to the quantum circuit
+    :param seededPathArr: The user provided seed
+    :return: A new path generated from the quantum circuit
+    """
     _isFirst = True
     ret_qPathDefArray = []
 
@@ -120,10 +132,10 @@ def generateQSeededPath(seededPathArr):
             ret_qPathDefArray.append(str(1000*round(newCoord[1], 2)))
             ret_qPathDefArray.append(' ')
 
-            qColourArray.append(newCoord[1])
+            # qColourArray.append(newCoord[1])
     return ret_qPathDefArray
 
-
+# Generate svg and fill in the quantum generated paths
 f= open("qSeededSVG.svg","w+")
 f.write(xmlDecl)
 f.write(svgOpen)
