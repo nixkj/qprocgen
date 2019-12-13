@@ -1,41 +1,29 @@
-from qiskit.tools.visualization import plot_histogram
+"""
+Uses a provided path as a seed and rotation matrices on a quantum circuit to generate path elements
+for an SVG file
+"""
 from qiskit import QuantumCircuit, execute, Aer, IBMQ, ClassicalRegister, QuantumRegister
-from qiskit.compiler import transpile, assemble
 import numpy as np
-#from numpy import binary_repr
-
-
-from qiskit.visualization import *
-
 
 from numpy import pi
 from numpy import sqrt
-from numpy import abs
-
 from numpy import round
-from numpy import round_
 
-max_distance = 3
-grid_size = 10
+# Gives us a path of x,y coordinates to use as a seed
+seed = input('Provide a string seed of even length containing numbers 0-9: ')
 
+# check length of seed is even
+if  len(seed)%2 != 0:
+    raise Exception('String needs to be even in length')
 
-# Gives us four x,y coordinates and distance/direction for random
-seed = input('Provide a string seed of length 8 containing numbers less than '+str(grid_size)+': ')
 print("Seed is {}", seed)
-
 
 xmlDecl = '<?xml version="1.0" standalone="no"?>'
 svgOpen = '<svg width="15cm" height="15cm" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" version="1.1"> '
 svgTitle = '  <title>Seed for SVG path was '+seed+'</title> '
 svgDescr = '  <desc>A path generated from a seed by a quantum algorithm</desc> '
-# svgBorder = ' <rect x="1" y="1" width="1000" height="1000" fill="none" stroke="black" /> '
 svgPathStart = '<path d="'
 svgPathEnd = '" fill="rgb(255, 158, 44)"  />'
-
-# svgPathEnd = '" fill="rgb(255, 158, 44)" stroke="blue" stroke-width="3" />'
-
-  # <path d="M 100 100 L 300 100 L 200 300 z"
-  #       fill="red" stroke="blue" stroke-width="3" />
 svgClose = '</svg>'
 
 
@@ -43,8 +31,6 @@ def svgPath(pathCoords, r=10, g=150, b=44):
     pathDef = ''.join(pathCoords)
     pathString = '<path d="'+pathDef+'" fill="rgb('+str(r)+', '+str(b)+', '+str(b)+')"  /> '
     return pathString
-
-r, g, b = 0, 155, 10
 
 
 def get_variation(pos, seed=8):
@@ -68,7 +54,7 @@ def get_variation(pos, seed=8):
     # run and get the counts dict
     counts = execute(qc, Aer.get_backend('qasm_simulator')).result().get_counts()
 
-    # make sure that every possible outpt has a non-zero entry in the counts dict
+    # make sure that every possible output has a non-zero entry in the counts dict
     for output in ['00', '10', '11', '01']:
         if output not in counts:
             counts[output] = 1
@@ -78,20 +64,18 @@ def get_variation(pos, seed=8):
     # print(counts)
     gradient = [counts['00'], counts['01'],counts['10'], counts['11']]
     # normalize the vector
-    length = np.sqrt(gradient[0] ** 2 + gradient[1] ** 2+gradient[2] ** 2 + gradient[3] ** 2)
+    #TODO ue the other two measurements for colour genertion and randomness of path
+    length = sqrt(gradient[0] ** 2 + gradient[1] ** 2+gradient[2] ** 2 + gradient[3] ** 2)
     gradient = [gradient[0] / length, gradient[1] / length, gradient[2] / length, gradient[3] / length]
 
-    print(gradient)
     # and output it
     return gradient
-
-
 
 pathDefArray = []
 qPathDefArray = []
 qColourArray = []
 
-#Original provided see
+#Original provided path used as seed
 isFirst = True
 for idx in range(len(seed)):
     if idx % 2 == 0:
