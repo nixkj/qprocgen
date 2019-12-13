@@ -1,5 +1,6 @@
 # Procedural generation using quantum computing
 
+(This is a hackathon project sprint project done in the Qiskit Camp Africa 2019)
 In computing, procedural generation is a method of creating data algorithmically as opposed to manually, typically through a combination of human-generated assets and algorithms coupled with computer-generated randomness and processing power. In computer graphics, it is commonly used to create textures and 3D models.
 
 Map Generation: A map requires values over a 2d or 3d grid. It forms the space that a player occupies and interacts with. This will form the basis of what the layout would be.
