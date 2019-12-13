@@ -16,4 +16,4 @@ Perlin noise is a procedural texture primitive, a type of gradient noise used by
 
 ## Acknowledgments
 
-* Hattip to this guy [here]  (https://github.com/artnas/Python-Map-Generator) who we derived the implementation and introduced the quantum aspect. 
+* Hattip to this guy https://github.com/artnas/Python-Map-Generator who we derived the implementation and introduced the quantum aspect. 
