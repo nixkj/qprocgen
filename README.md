@@ -9,7 +9,7 @@ Perlin noise is a procedural texture primitive, a type of gradient noise used by
 
 ## Technologies used
 
-* Qiskit - For quantum computing. link: https://qiskit.org/
+* Qiskit - For quantum computing. link: https://qiskit.org/.  You can follow the instructions [here](https://qiskit.org/documentation/install.html) to install the required software packages, or [here](https://www.youtube.com/watch?v=M4EkW4VwhcI&list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY&index=3) if you prefer watching a video.
 * Jupyter notebook
 * Python
 
