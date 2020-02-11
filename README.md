@@ -15,7 +15,7 @@ We used the following link to come up with a perlin algorithm for generating our
 * Jupyter notebook
 * Python
 
-## Aplications
+## Applications
 Quantum computation is a new architecture for computing. From this project it has shown that once full-scale, fault-tolerant quantum computation is realized, it will provide a wide range of new algorithms to solve various problems in many different areas. These will provide significant reduction in computational complexity compared to algorithms for standard computers. For games, this means that many more different tasks will be acheivable within the timescale of a loading screen.
 
 
@@ -23,3 +23,9 @@ Quantum computation is a new architecture for computing. From this project it ha
 
 * This project was developed for "Qiskit Camp Africa" which was held from December 11-14, 2019. We could like to thank the organisers of this event.
 * We would also like to thank Ken Nixon who provided support and direction during the event.
+
+## Contributors
+* Ghulame Mujtaba Arbi
+* Bernard Lebeko Poulo
+* Eric Ndirangu
+* Coral Featherstone
