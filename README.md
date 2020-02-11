@@ -1,3 +1,10 @@
+
+## Contributors
+* Ghulame Mujtaba Arbi
+* Bernard Lebeko Poulo
+* Eric Ndirangu
+* Coral Featherstone
+
 # Procedural generation using quantum computing
 
 (This is a hackathon project sprint project done in the Qiskit Camp Africa 2019)
@@ -24,8 +31,4 @@ Quantum computation is a new architecture for computing. From this project it ha
 * This project was developed for "Qiskit Camp Africa" which was held from December 11-14, 2019. We could like to thank the organisers of this event.
 * We would also like to thank Ken Nixon who provided support and direction during the event.
 
-## Contributors
-* Ghulame Mujtaba Arbi
-* Bernard Lebeko Poulo
-* Eric Ndirangu
-* Coral Featherstone
+
